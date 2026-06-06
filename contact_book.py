@@ -97,7 +97,7 @@ def save_to_file():
 #Function to load contacts from a file
 
 def load_from_file():
-    if os.path.exists("contacts.txt", "r") as file:
+    if os.path.exists("contacts.txt", "r"):
         with open("contacts.txt", "r") as file:
             for line in file:
                 name,phone,email = line.strip().split(",")
@@ -112,27 +112,27 @@ def load_from_file():
 def main():
     while True:
         menu()
-        choice = input("Choose an option")
+        choice = input("Choose an option: ")
 
-        if choice == '1':
-            add_contact()
-        elif choice =='2':
-            view_contacts()
-        elif choice == '3':
-            search_contact()
-        elif choice == '4':
-            update_contact()
-        elif choice == '5':
-            delete_contact()
-        elif choice == '6':
-            save_to_file()
-        elif choice == '7':
-            load_from_file()
-        elif choice == '8':
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid choice, please try again")
+        match choice:
+            case '1':
+                add_contact()
+            case '2':
+                view_contacts()
+            case '3':
+                search_contact()
+            case '4':
+                update_contact()
+            case '5':
+                delete_contact()
+            case '6':
+                save_to_file()
+            case '7':
+                load_from_file()
+            case '8':
+                print("Goodbye!")
+                break
+
 
 if __name__ == "__main__":
     main()
